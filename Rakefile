@@ -13,5 +13,5 @@ end
 
 task :manage, [:mtask] => [:setupenv] do |t, args|
     args.with_defaults(:mtask => "test")
-    sh "cd application && ../#{ENV_WRAPPER} python manage.py #{args[:mtask]} --settings=timely.settings.#{TIMELY_ENV}"
+    sh "#{ENV_WRAPPER} python application/manage.py #{args[:mtask]} --settings=timely.settings.#{TIMELY_ENV}"
 end

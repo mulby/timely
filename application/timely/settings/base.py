@@ -1,7 +1,16 @@
 # Django settings for timely project.
 
+from os import path
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+
+here = lambda *x: path.join(path.abspath(path.dirname(__file__)), *x)
+PROJECT_ROOT = here(
+    '..',  # timely
+    '..'   # application
+)
+root = lambda *x: path.join(path.abspath(PROJECT_ROOT), *x)
 
 ADMINS = (
     ('Gabe Mulley', 'gabe.mulley@gmail.com'),
