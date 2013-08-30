@@ -1,0 +1,26 @@
+---
+- hosts: webserver
+  sudo: True
+
+  tasks:
+    - name: update apt-get
+      command: /usr/bin/apt-get update
+
+    - name: ensure packages are installed
+      apt: pkg=$item state=present
+      with_items:
+        - curl
+        - postgresql
+        - libpq-dev
+        - python-pip
+
+    - name: install virtualenvwrapper
+      pip: name=virtualenvwrapper
+
+    - name: install rvm
+      shell: curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
+      sudo: False
+
+    - name: install rake
+      shell: executable=/bin/bash ~/.rvm/bin/gem install --version '10.1.0' rake
+      sudo: False
