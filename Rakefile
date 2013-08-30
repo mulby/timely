@@ -11,7 +11,7 @@ task :setupenv do
     sh "#{ENV_WRAPPER} pip install -r requirements/#{TIMELY_ENV}.txt"
 end
 
-task :manage, [:mtask] => [:setupenv] do |t, args|
+task :manage, [:mtask] do |t, args|
     args.with_defaults(:mtask => "test")
     sh "#{ENV_WRAPPER} python application/manage.py #{args[:mtask]} --settings=timely.settings.#{TIMELY_ENV}"
 end
