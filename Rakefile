@@ -20,7 +20,7 @@ task :manage, [:task_with_args] do |t, args|
     manage args[:task_with_args]
 end
 
-[:runserver, :test].each do |manager_task|
+[:runserver, :test, :run_gunicorn].each do |manager_task|
     task manager_task do
         manage manager_task.id2name
     end
