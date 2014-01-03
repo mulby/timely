@@ -1,0 +1,5 @@
+[gerrit]
+host=gerrit.analytics.edx.org
+port=29418
+project=mulby/timely.git
+defaultbranch=master
