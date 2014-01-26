@@ -1,0 +1,9 @@
+---
+build:
+  condition: elapsed_seconds(600) && branch_changed()
+  steps:
+  - task: docker
+    dockerfile: |
+      BASE ubuntu:12.04
+      RUN echo hello
+
